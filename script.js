@@ -39,6 +39,26 @@ if (prefersLessMotion || !('IntersectionObserver' in window)) {
   });
 }
 
+const heroSection = document.querySelector('.hero-cinematic');
+const heroImage = heroSection?.querySelector('.hero-image');
+let parallaxFrame = 0;
+
+function updateHeroParallax() {
+  if (!heroSection || !heroImage || prefersLessMotion) return;
+  const rect = heroSection.getBoundingClientRect();
+  const shift = Math.max(-24, Math.min(96, -rect.top * 0.18));
+  heroImage.style.setProperty('--hero-parallax', `${shift.toFixed(1)}px`);
+  parallaxFrame = 0;
+}
+
+function scheduleHeroParallax() {
+  if (!parallaxFrame) parallaxFrame = window.requestAnimationFrame(updateHeroParallax);
+}
+
+window.addEventListener('scroll', scheduleHeroParallax, { passive: true });
+window.addEventListener('resize', scheduleHeroParallax, { passive: true });
+updateHeroParallax();
+
 let progressFrame = 0;
 function updateScrollProgress() {
   const page = document.documentElement;
