@@ -1,6 +1,6 @@
 VoltSecure — site (GitHub Pages)
-Arquivos na raiz: index.html, styles.css, script.js
-Pasta assets/hero/  -> ilustrações do hero (base-casa + peças da montagem no scroll)
-Pasta assets/produtos/ -> ícones dos cards de produto
-Falta criar: assets/og.jpg (1200x630) para a prévia no WhatsApp.
-As peças do hero compartilham o quadro 1000x1000; ao trocar por arte própria, mantenha o mesmo quadro.
+IMPORTANTE: as ilustrações agora estão EMBUTIDAS dentro do index.html (SVG inline).
+Para publicar, só precisa destes 3 arquivos na raiz do repositório:
+  index.html, styles.css, script.js
+Não precisa mais da pasta assets/ para as imagens funcionarem.
+(Opcional) assets/og.jpg (1200x630) só para a prévia do link no WhatsApp.

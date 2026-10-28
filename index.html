@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f8faf8">
+<meta name="theme-color" content="#0b2616">
 <meta name="description" content="VoltSecure em Alphaville, Barueri: câmeras Intelbras, DVRs, alarmes, fechaduras digitais e serviços elétricos com instalação profissional. Peça seu orçamento pelo WhatsApp.">
 
 <title>VoltSecure — Câmeras, alarmes e elétrica em Alphaville, Barueri</title>
 
-<!-- Open Graph / prévia no WhatsApp -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="VoltSecure — Segurança e elétrica com confiança">
 <meta property="og:description" content="Câmeras Intelbras, alarmes, fechaduras digitais e serviços elétricos com instalação profissional em Alphaville, Barueri e região.">
@@ -21,7 +20,6 @@
 <link rel="stylesheet" href="styles.css">
 <script src="script.js" defer></script>
 
-<!-- Dados do negócio para o Google -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -30,7 +28,6 @@
   "description": "Câmeras de segurança, alarmes, fechaduras digitais, sensores e serviços elétricos com instalação profissional.",
   "image": "assets/og.jpg",
   "url": "https://1kelvynvinicios-svg.github.io/LP-VOLTSECURE/",
-  "telephone": "",
   "sameAs": ["https://wa.me/message/CSXTN5VPTHPSF1"],
   "areaServed": "São Paulo e região metropolitana",
   "address": {
@@ -47,7 +44,7 @@
 <body>
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="header-inner container">
     <a class="brand" href="#inicio" aria-label="VoltSecure, página inicial">
       <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3.5 27 8v7.7c0 6.2-4.5 10.8-11 13.3C9.5 26.5 5 21.9 5 15.7V8l11-4.5Z" stroke="currentColor" stroke-width="2"/><path d="m17.5 8-6 9h4.8l-1.2 7 6.4-10h-4.8l.8-6Z" fill="currentColor"/></svg></span>
@@ -62,48 +59,134 @@
 </header>
 
 <main id="conteudo">
-  <!-- HERO com montagem no scroll -->
-  <section class="hero container" id="inicio" aria-labelledby="hero-title">
-    <div class="hero-copy">
-      <p class="eyebrow"><span class="eyebrow-dot"></span> VoltSecure · Alphaville, Barueri</p>
-      <h1 id="hero-title"><span class="title-line"><span>Segurança instalada</span></span><span class="title-line"><span>do <em>jeito certo.</em></span></span></h1>
-      <p class="hero-description">Câmeras, alarmes, fechaduras digitais e serviços elétricos com instalação profissional. Role a página e veja a proteção sendo montada.</p>
-      <div class="hero-actions"><a class="button" href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Solicitar orçamento <span aria-hidden="true">↗</span></a><a class="text-link" href="#produtos">Conhecer produtos <span aria-hidden="true">↓</span></a></div>
-      <p class="service-area"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.1 6-10a6 6 0 1 0-12 0c0 4.9 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg> Loja em Alphaville, Barueri — SP. Atendimento em São Paulo e região.</p>
-    </div>
-
-    <div class="hero-visual">
-      <div class="hero-stage" id="hero-stage" role="img" aria-label="Ilustração de uma casa recebendo câmera, sensor, fechadura, alarme e proteção">
-        <canvas class="signal-canvas" aria-hidden="true"></canvas>
-        <div class="stage-inner" id="stage-inner">
-          <img class="hero-layer hero-base" src="assets/hero/base-casa.svg" alt="" width="1000" height="1000" fetchpriority="high">
-          <img class="hero-layer hero-piece" data-piece="camera" src="assets/hero/camera.svg" alt="" width="1000" height="1000" onerror="this.style.display='none'">
-          <img class="hero-layer hero-piece" data-piece="sensor" src="assets/hero/sensor.svg" alt="" width="1000" height="1000" onerror="this.style.display='none'">
-          <img class="hero-layer hero-piece" data-piece="fechadura" src="assets/hero/fechadura.svg" alt="" width="1000" height="1000" onerror="this.style.display='none'">
-          <img class="hero-layer hero-piece" data-piece="alarme" src="assets/hero/alarme.svg" alt="" width="1000" height="1000" onerror="this.style.display='none'">
-          <img class="hero-layer hero-piece" data-piece="escudo" src="assets/hero/escudo.svg" alt="" width="1000" height="1000" onerror="this.style.display='none'">
+  <!-- =========================== HERO full-bleed =========================== -->
+  <section class="hero-wrap" id="inicio" aria-labelledby="hero-title">
+    <canvas class="signal-canvas" aria-hidden="true"></canvas>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> VoltSecure · Alphaville, Barueri</p>
+        <h1 id="hero-title"><span class="t-line"><span>Segurança que</span></span><span class="t-line"><span>você vê sendo</span></span><span class="t-line"><span><em>instalada.</em></span></span></h1>
+        <p class="hero-description">Câmeras, alarmes, fechaduras digitais e serviços elétricos com instalação profissional em residências e comércios. Role a página e veja a proteção ser montada.</p>
+        <div class="hero-actions">
+          <a class="button button-bright" href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Solicitar orçamento <span aria-hidden="true">↗</span></a>
+          <a class="text-link text-link-light" href="#produtos">Conhecer produtos <span aria-hidden="true">↓</span></a>
         </div>
-        <span class="stage-status" aria-hidden="true"><span class="stage-dot"></span> Proteção ativa</span>
+        <p class="service-area"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.1 6-10a6 6 0 1 0-12 0c0 4.9 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg> Loja em Alphaville, Barueri — SP · Atendimento em São Paulo e região.</p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-stage" id="hero-stage" role="img" aria-label="Ilustração de uma casa recebendo câmera, sensor, fechadura, alarme e um perímetro de proteção">
+          <svg class="stage-svg" id="stage-svg" viewBox="0 0 1000 1000" fill="none" aria-hidden="true">
+            <defs>
+              <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="11"/></filter>
+            </defs>
+
+            <!-- BASE: casa -->
+            <g id="g-base">
+              <ellipse cx="500" cy="852" rx="330" ry="24" fill="#041f10" opacity=".55"/>
+              <line x1="140" y1="832" x2="860" y2="832" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity=".16"/>
+              <path d="M232 404 L500 214 L768 404 Z" fill="#1a7d42"/>
+              <rect x="250" y="392" width="500" height="22" rx="6" fill="#0f5a30"/>
+              <rect x="268" y="412" width="464" height="420" rx="10" fill="#ffffff" stroke="#0d3d21" stroke-width="9"/>
+              <rect x="442" y="614" width="116" height="218" rx="6" fill="#e3efe7" stroke="#14532d" stroke-width="7"/>
+              <line x1="500" y1="622" x2="500" y2="824" stroke="#14532d" stroke-width="3" opacity=".4"/>
+              <rect x="312" y="472" width="120" height="120" rx="8" fill="#e3efe7" stroke="#14532d" stroke-width="7"/>
+              <rect x="568" y="472" width="120" height="120" rx="8" fill="#e3efe7" stroke="#14532d" stroke-width="7"/>
+              <path d="M372 476V588 M316 532H428" stroke="#14532d" stroke-width="3" opacity=".4"/>
+              <path d="M628 476V588 M572 532H684" stroke="#14532d" stroke-width="3" opacity=".4"/>
+            </g>
+
+            <!-- ESCUDO: perímetro + selo -->
+            <g id="g-escudo" class="piece">
+              <rect x="150" y="210" width="700" height="636" rx="70" stroke="#34d36b" stroke-width="12" opacity=".4" filter="url(#glow)"/>
+              <rect x="150" y="210" width="700" height="636" rx="70" stroke="#34d36b" stroke-width="6" stroke-dasharray="4 16" stroke-linecap="round" opacity=".95"/>
+              <g transform="translate(500,210)">
+                <path d="M0 -56 L48 -37 V2 C48 37 25 58 0 68 C-25 58 -48 37 -48 2 V-37 Z" fill="#0f5a30" stroke="#34d36b" stroke-width="3"/>
+                <path d="M-21 6 L-6 23 L25 -15" stroke="#eafff2" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </g>
+
+            <!-- CÂMERA -->
+            <g id="g-camera" class="piece">
+              <path d="M300 452 V422" stroke="#0d3d21" stroke-width="8" stroke-linecap="round"/>
+              <circle cx="300" cy="420" r="7" fill="#0d3d21"/>
+              <rect x="248" y="452" width="94" height="44" rx="22" fill="#14532d"/>
+              <circle cx="258" cy="474" r="16" fill="#0a2e1a" stroke="#34d36b" stroke-width="4"/>
+              <circle cx="258" cy="474" r="6" fill="#34d36b"/>
+            </g>
+
+            <!-- SENSOR -->
+            <g id="g-sensor" class="piece">
+              <path d="M700 494 L636 568 L764 568 Z" fill="#34d36b" opacity=".18"/>
+              <rect x="676" y="430" width="48" height="64" rx="16" fill="#ffffff" stroke="#14532d" stroke-width="7"/>
+              <rect x="686" y="446" width="28" height="18" rx="6" fill="#0a2e1a"/>
+              <circle cx="700" cy="480" r="5" fill="#34d36b"/>
+            </g>
+
+            <!-- FECHADURA -->
+            <g id="g-fechadura" class="piece">
+              <rect x="520" y="676" width="46" height="74" rx="10" fill="#ffffff" stroke="#14532d" stroke-width="6"/>
+              <rect x="530" y="688" width="26" height="16" rx="4" fill="#0a2e1a"/>
+              <circle cx="543" cy="726" r="9" fill="none" stroke="#34d36b" stroke-width="5"/>
+            </g>
+
+            <!-- ALARME -->
+            <g id="g-alarme" class="piece">
+              <rect x="300" y="556" width="70" height="52" rx="12" fill="#14532d"/>
+              <circle cx="335" cy="582" r="15" fill="#34d36b"/>
+              <circle cx="335" cy="582" r="6" fill="#eafff2"/>
+              <path d="M382 566 q16 16 0 32 M398 556 q28 26 0 52" stroke="#34d36b" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"/>
+            </g>
+          </svg>
+          <span class="stage-status" aria-hidden="true"><span class="stage-dot"></span> Proteção ativa</span>
+        </div>
       </div>
     </div>
+    <a class="scroll-hint" href="#produtos" aria-label="Rolar para baixo"><span>role para instalar a proteção</span><span class="scroll-hint-arrow" aria-hidden="true">↓</span></a>
   </section>
 
-  <!-- PRODUTOS -->
+  <!-- =========================== PRODUTOS =========================== -->
   <section class="products-section" id="produtos" aria-labelledby="products-title">
     <div class="container products-wrap">
-      <div class="products-heading reveal"><p class="eyebrow">Produtos</p><h2 id="products-title">Câmeras, gravadores e proteção para o dia a dia.</h2><p>Veja alguns dos produtos que trabalhamos e fale com a equipe para consultar disponibilidade e instalação.</p></div>
+      <div class="products-heading reveal"><p class="eyebrow eyebrow-dark">Produtos</p><h2 id="products-title">Câmeras, gravadores e proteção para o dia a dia.</h2><p>Veja alguns dos produtos que trabalhamos e fale com a equipe para consultar disponibilidade e instalação.</p></div>
       <div class="product-grid">
-        <article class="product-card reveal"><div class="product-visual"><img src="assets/produtos/camera.svg" alt="Câmera de segurança Intelbras" loading="lazy" decoding="async"></div><div class="product-card-copy"><span class="product-kicker">Monitoramento</span><h3>Câmeras Intelbras</h3><p>Para monitorar entradas, áreas externas e ambientes internos. Consulte modelos disponíveis.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar câmeras <span aria-hidden="true">↗</span></a></div></article>
-        <article class="product-card reveal"><div class="product-visual"><img src="assets/produtos/dvr.svg" alt="Gravador DVR ou NVR Intelbras" loading="lazy" decoding="async"></div><div class="product-card-copy"><span class="product-kicker">Gravação e controle</span><h3>DVRs e NVRs</h3><p>Gravadores para sistemas de monitoramento. Consulte modelos e compatibilidade.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar gravadores <span aria-hidden="true">↗</span></a></div></article>
-        <article class="product-card reveal"><div class="product-visual"><img src="assets/produtos/fechadura.svg" alt="Fechadura digital Intelbras" loading="lazy" decoding="async"></div><div class="product-card-copy"><span class="product-kicker">Acesso inteligente</span><h3>Fechadura digital</h3><p>Controle de acesso eletrônico. Consulte disponibilidade e opções de instalação.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar fechaduras <span aria-hidden="true">↗</span></a></div></article>
-        <article class="product-card reveal"><div class="product-visual"><img src="assets/produtos/alarme.svg" alt="Central de alarme Intelbras" loading="lazy" decoding="async"></div><div class="product-card-copy"><span class="product-kicker">Proteção do ambiente</span><h3>Alarmes Intelbras</h3><p>Sistemas de alarme para residências e comércios. Consulte componentes e modelos.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar alarmes <span aria-hidden="true">↗</span></a></div></article>
-        <article class="product-card reveal"><div class="product-visual"><img src="assets/produtos/sensor-movimento.svg" alt="Sensor de movimento infravermelho Intelbras" loading="lazy" decoding="async"></div><div class="product-card-copy"><span class="product-kicker">Detecção de movimento</span><h3>Sensores de movimento</h3><p>Detectam movimentações e complementam o sistema de alarme. Consulte a aplicação ideal.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar sensores <span aria-hidden="true">↗</span></a></div></article>
-        <article class="product-card reveal"><div class="product-visual"><img src="assets/produtos/sensor-abertura.svg" alt="Sensor de abertura para portas e janelas Intelbras" loading="lazy" decoding="async"></div><div class="product-card-copy"><span class="product-kicker">Portas e janelas</span><h3>Sensores de abertura</h3><p>Indicam abertura de portas e janelas no sistema de segurança. Consulte disponibilidade.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar sensores <span aria-hidden="true">↗</span></a></div></article>
+
+        <article class="product-card reveal">
+          <div class="product-visual"><svg viewBox="0 0 200 200" fill="none" role="img" aria-label="Câmera de segurança Intelbras"><path d="M118 74 V50" stroke="#14532d" stroke-width="9" stroke-linecap="round"/><circle cx="118" cy="48" r="8" fill="#14532d"/><rect x="44" y="74" width="114" height="52" rx="26" fill="#14532d"/><circle cx="66" cy="100" r="19" fill="#0d3d21" stroke="#16a34a" stroke-width="5"/><circle cx="66" cy="100" r="7" fill="#16a34a"/><rect x="150" y="88" width="14" height="24" rx="5" fill="#0d3d21"/></svg></div>
+          <div class="product-card-copy"><span class="product-kicker">Monitoramento</span><h3>Câmeras Intelbras</h3><p>Para monitorar entradas, áreas externas e ambientes internos. Consulte modelos disponíveis.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar câmeras <span aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-visual"><svg viewBox="0 0 200 200" fill="none" role="img" aria-label="Gravador DVR ou NVR Intelbras"><rect x="32" y="70" width="136" height="62" rx="12" fill="#ffffff" stroke="#14532d" stroke-width="8"/><circle cx="56" cy="101" r="7" fill="#16a34a"/><rect x="78" y="88" width="80" height="9" rx="4" fill="#14532d" opacity=".25"/><rect x="78" y="106" width="54" height="9" rx="4" fill="#14532d" opacity=".25"/><rect x="146" y="106" width="12" height="9" rx="4" fill="#16a34a"/></svg></div>
+          <div class="product-card-copy"><span class="product-kicker">Gravação e controle</span><h3>DVRs e NVRs</h3><p>Gravadores para sistemas de monitoramento. Consulte modelos e compatibilidade.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar gravadores <span aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-visual"><svg viewBox="0 0 200 200" fill="none" role="img" aria-label="Fechadura digital Intelbras"><rect x="60" y="44" width="80" height="114" rx="18" fill="#ffffff" stroke="#14532d" stroke-width="8"/><rect x="78" y="60" width="44" height="26" rx="6" fill="#0d3d21"/><g fill="#14532d"><circle cx="82" cy="106" r="5"/><circle cx="100" cy="106" r="5"/><circle cx="118" cy="106" r="5"/><circle cx="82" cy="124" r="5"/><circle cx="100" cy="124" r="5"/><circle cx="118" cy="124" r="5"/></g><circle cx="100" cy="144" r="7" fill="none" stroke="#16a34a" stroke-width="4"/></svg></div>
+          <div class="product-card-copy"><span class="product-kicker">Acesso inteligente</span><h3>Fechadura digital</h3><p>Controle de acesso eletrônico. Consulte disponibilidade e opções de instalação.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar fechaduras <span aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-visual"><svg viewBox="0 0 200 200" fill="none" role="img" aria-label="Central de alarme Intelbras"><path d="M152 76 q20 24 0 48 M48 76 q-20 24 0 48" stroke="#14532d" stroke-width="7" fill="none" stroke-linecap="round" opacity=".8"/><rect x="58" y="60" width="84" height="84" rx="18" fill="#14532d"/><circle cx="100" cy="102" r="24" fill="#16a34a"/><circle cx="100" cy="102" r="10" fill="#eaffe9"/></svg></div>
+          <div class="product-card-copy"><span class="product-kicker">Proteção do ambiente</span><h3>Alarmes Intelbras</h3><p>Sistemas de alarme para residências e comércios. Consulte componentes e modelos.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar alarmes <span aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-visual"><svg viewBox="0 0 200 200" fill="none" role="img" aria-label="Sensor de movimento infravermelho Intelbras"><path d="M100 116 L64 160 H136 Z" fill="#16a34a" opacity=".16"/><rect x="78" y="44" width="44" height="66" rx="16" fill="#ffffff" stroke="#14532d" stroke-width="8"/><rect x="88" y="58" width="24" height="16" rx="5" fill="#0d3d21"/><circle cx="100" cy="94" r="5" fill="#16a34a"/><path d="M84 150 q16 11 32 0" stroke="#16a34a" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="product-card-copy"><span class="product-kicker">Detecção de movimento</span><h3>Sensores de movimento</h3><p>Detectam movimentações e complementam o sistema de alarme. Consulte a aplicação ideal.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar sensores <span aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-visual"><svg viewBox="0 0 200 200" fill="none" role="img" aria-label="Sensor de abertura para portas e janelas Intelbras"><rect x="50" y="76" width="44" height="66" rx="12" fill="#ffffff" stroke="#14532d" stroke-width="8"/><rect x="108" y="76" width="34" height="66" rx="12" fill="#14532d"/><circle cx="72" cy="109" r="6" fill="#16a34a"/><path d="M98 94 h8 M98 109 h8 M98 124 h8" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/></svg></div>
+          <div class="product-card-copy"><span class="product-kicker">Portas e janelas</span><h3>Sensores de abertura</h3><p>Indicam abertura de portas e janelas no sistema de segurança. Consulte disponibilidade.</p><a href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Consultar sensores <span aria-hidden="true">↗</span></a></div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- DIFERENCIAIS (faixa de confiança) -->
+  <!-- =========================== DIFERENCIAIS =========================== -->
   <section class="trust-section" id="diferenciais" aria-labelledby="trust-title">
     <div class="container">
       <h2 id="trust-title" class="sr-only">Por que escolher a VoltSecure</h2>
@@ -115,9 +198,9 @@
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
+  <!-- =========================== SERVIÇOS =========================== -->
   <section class="services-section" id="servicos" aria-labelledby="services-title"><div class="container services-wrap">
-    <div class="section-heading reveal"><p class="eyebrow">O que fazemos</p><h2 id="services-title">Soluções essenciais para proteger e cuidar do seu espaço.</h2></div>
+    <div class="section-heading reveal"><p class="eyebrow eyebrow-dark">O que fazemos</p><h2 id="services-title">Soluções essenciais para proteger e cuidar do seu espaço.</h2></div>
     <div class="services-list">
       <article class="service-item reveal"><span class="service-icon" aria-hidden="true">⌁</span><div><h3>Câmeras e monitoramento</h3><p>Instalação e configuração de sistemas de câmeras de segurança.</p></div><span class="item-number" aria-hidden="true">01</span></article>
       <article class="service-item reveal"><span class="service-icon" aria-hidden="true">ϟ</span><div><h3>Instalações elétricas</h3><p>Serviços elétricos conforme a necessidade do ambiente.</p></div><span class="item-number" aria-hidden="true">02</span></article>
@@ -126,7 +209,7 @@
     <a class="services-cta" href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Converse sobre o que você precisa <span aria-hidden="true">↗</span></a>
   </div></section>
 
-  <!-- CONTATO -->
+  <!-- =========================== CONTATO =========================== -->
   <section class="contact-section container" id="atendimento" aria-labelledby="contact-title"><div class="contact-panel reveal">
     <div class="contact-copy"><p class="eyebrow eyebrow-light">Atendimento VoltSecure</p><h2 id="contact-title">Atendimento próximo, do primeiro contato à execução.</h2><p>Entendemos sua necessidade, orientamos sobre as opções disponíveis e combinamos os detalhes do serviço antes da execução.</p><a class="button button-light" href="https://wa.me/message/CSXTN5VPTHPSF1" target="_blank" rel="noopener noreferrer">Falar com a VoltSecure <span aria-hidden="true">↗</span></a></div>
     <div class="contact-details">
