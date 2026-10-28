@@ -87,12 +87,23 @@ h1 em{font-style:normal;color:var(--bright-2)}
 .service-area{display:flex;align-items:center;gap:9px;margin:38px 0 0;color:rgba(233,245,237,.6);font-size:12.5px}
 .service-area svg{width:16px;height:16px;fill:none;stroke:var(--bright-2);stroke-width:1.4;flex:none}
 
-/* Palco grande com a montagem */
+/* Palco grande: foto do sistema + ativação no scroll */
 .hero-visual{display:flex;justify-content:center;align-items:center}
-.hero-stage{position:relative;width:100%;max-width:600px;aspect-ratio:1/1}
-.stage-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.stage-svg .piece{transform-box:fill-box}
-.js-montage .stage-svg .piece{opacity:0}
+.hero-stage{position:relative;width:100%;max-width:620px;aspect-ratio:1/1}
+.hero-photo-wrap{position:absolute;inset:0;will-change:transform}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 34px 66px rgba(0,0,0,.5))}
+.hero-overlay{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+
+.pulse{opacity:0;transition:opacity .55s ease}
+.pulse.on{opacity:1}
+.pulse .ring{fill:none;stroke:var(--bright-2);stroke-width:.45;transform-box:fill-box;transform-origin:center;opacity:0}
+.pulse.on .ring{animation:ringPulse 2.6s ease-out infinite}
+.pulse.on .ring.r2{animation-delay:1.3s}
+.pulse .core{fill:var(--bright-2);transform-box:fill-box;transform-origin:center;filter:drop-shadow(0 0 2px rgba(52,211,107,.9))}
+.pulse.on .core{animation:coreBeat 2.6s ease-in-out infinite}
+@keyframes ringPulse{0%{transform:scale(.3);opacity:.85}70%{opacity:.2}100%{transform:scale(1.65);opacity:0}}
+@keyframes coreBeat{0%,100%{transform:scale(.72);opacity:.55}50%{transform:scale(1.18);opacity:1}}
+
 .stage-status{position:absolute;z-index:3;left:4px;bottom:0;display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);color:#eafff2;font-size:12.5px;font-weight:600;opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
 .hero-stage.is-protected .stage-status{opacity:1;transform:translateY(0)}
 .stage-dot{width:8px;height:8px;border-radius:50%;background:var(--bright-2);box-shadow:0 0 0 4px rgba(52,211,107,.22)}
@@ -113,9 +124,9 @@ h1 em{font-style:normal;color:var(--bright-2)}
 .product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
 .product-card{min-width:0;overflow:hidden;border:1px solid #e7ede8;border-radius:14px;background:#fff;box-shadow:0 10px 28px #1020180a;transition:box-shadow .25s ease,border-color .25s ease,transform .25s ease}
 .product-card:hover{border-color:#c9ddce;box-shadow:0 20px 42px #10201816;transform:translateY(-5px)}
-.product-visual{height:200px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#eef5ef,#e2ede6)}
-.product-visual svg{width:min(130px,56%);height:auto;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.product-card:hover .product-visual svg{transform:scale(1.08)}
+.product-visual{height:214px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 40%,#f2f8f3,#e2ede6)}
+.product-visual img{width:auto;max-width:76%;max-height:78%;object-fit:contain;filter:drop-shadow(0 14px 22px rgba(16,40,24,.16));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.product-card:hover .product-visual img{transform:scale(1.07)}
 .product-card-copy{padding:22px 22px 24px}
 .product-kicker{display:block;margin-bottom:9px;color:#60806a;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
 .product-card h3{margin:0 0 8px;font-size:20px;letter-spacing:-.5px}
@@ -267,6 +278,7 @@ h1 em{font-style:normal;color:var(--bright-2)}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
   .motion-ready .reveal{opacity:1;transform:none}
-  .js-montage .stage-svg .piece{opacity:1}
-  .product-card:hover,.product-card:hover .product-visual svg{transform:none}
+  .motion-ready .hero-photo-wrap{opacity:1;transform:none}
+  .pulse{opacity:1}
+  .product-card:hover,.product-card:hover .product-visual img{transform:none}
 }

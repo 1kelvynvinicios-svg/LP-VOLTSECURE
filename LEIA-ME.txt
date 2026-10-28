@@ -1,6 +1,21 @@
-VoltSecure — site (GitHub Pages)
-IMPORTANTE: as ilustrações agora estão EMBUTIDAS dentro do index.html (SVG inline).
-Para publicar, só precisa destes 3 arquivos na raiz do repositório:
-  index.html, styles.css, script.js
-Não precisa mais da pasta assets/ para as imagens funcionarem.
-(Opcional) assets/og.jpg (1200x630) só para a prévia do link no WhatsApp.
+VoltSecure — site atualizado (imagens reais do cliente)
+
+ARQUIVOS (só estes 3 vão pro GitHub):
+  index.html   -> página (imagens já embutidas, não precisa de pasta assets)
+  styles.css   -> estilos
+  script.js    -> animações
+
+NOVIDADES:
+- Hero com a SUA imagem real (casa + escudo + dispositivos).
+- Ao rolar: cada dispositivo acende em sequência + zoom suave (parallax).
+- 8 produtos com fotos reais recortadas (fundo verde removido).
+- Imagens embutidas no HTML: nunca mais somem no upload.
+
+PUBLICAR NO GITHUB:
+1. github.com/1kelvynvinicios-svg/LP-VOLTSECURE
+2. Add file -> Upload files
+3. Arraste index.html, styles.css, script.js (NÃO precisa de pasta assets)
+4. Commit changes -> espere ~1 min -> abra a página com Ctrl+F5
+
+OPERA: se as seções brancas ficarem escuras, desligue
+"Modo escuro para sites" em Configurações -> Aparência.

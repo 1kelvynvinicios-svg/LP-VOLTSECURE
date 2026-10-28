@@ -85,64 +85,39 @@
   var backOut = function (t, s) { s = s || 2.2; return 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2); };
   var clamp01 = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
 
-  /* ----------------------------------------------------------------- Montagem no scroll (SVG inline) */
+  /* ----------------------------------------------------------------- Hero: ativação no scroll + parallax */
   var stage = document.getElementById('hero-stage');
-  var stageSvg = document.getElementById('stage-svg');
+  var photoWrap = document.getElementById('hero-photo-wrap');
+  var pulses = Array.prototype.slice.call(document.querySelectorAll('.pulse'));
+  // limiar de scroll (p, 0..1) em que cada dispositivo acende, por data-d:
+  // 0 câmera · 1 sensor · 2 alarme · 3 fechadura · 4 escudo
+  var DEVICE_AT = [0.10, 0.24, 0.38, 0.52, 0.66];
 
-  // Janela de progresso (p), escala inicial, âncora (coords do viewBox 0..1000) e easing.
-  var PIECES = [
-    { id: 'g-camera',    start: 0.10, end: 0.40, sx: 0.40, sy: 0.40, ax: 300, ay: 430, rot: -8, ease: easeOutCubic },
-    { id: 'g-sensor',    start: 0.20, end: 0.48, sx: 0.30, sy: 0.30, ax: 700, ay: 440, rot: 0,  ease: easeOutCubic },
-    { id: 'g-fechadura', start: 0.30, end: 0.56, sx: 0.50, sy: 0.50, ax: 543, ay: 713, rot: 0,  ease: easeOutCubic },
-    { id: 'g-alarme',    start: 0.38, end: 0.64, sx: 0.30, sy: 0.30, ax: 335, ay: 582, rot: 0,  ease: function (t) { return backOut(t, 2.4); } },
-    { id: 'g-escudo',    start: 0.50, end: 0.80, sx: 0.85, sy: 0.85, ax: 500, ay: 528, rot: 0,  ease: easeInOutCubic }
-  ];
+  function activateAll() {
+    pulses.forEach(function (el) { el.classList.add('on'); });
+    if (stage) stage.classList.add('is-protected');
+    if (photoWrap) photoWrap.style.transform = 'none';
+  }
 
-  function setupMontage() {
-    if (!stage || !stageSvg) return;
+  function setupHero() {
+    if (!stage) return;
 
-    var els = {};
-    PIECES.forEach(function (cfg) { els[cfg.id] = document.getElementById(cfg.id); });
+    if (prefersReduced || window.innerWidth <= 980) { activateAll(); return; }
 
-    var isStatic = prefersReduced || window.innerWidth <= 980;
-
-    function renderStatic() {
-      PIECES.forEach(function (cfg) {
-        var el = els[cfg.id];
-        if (el) { el.style.opacity = '1'; el.removeAttribute('transform'); }
-      });
-      stageSvg.style.transform = 'none';
-      stage.classList.add('is-protected');
-    }
-
-    function render(p) {
-      var e = easeInOutCubic(p);
-      stageSvg.style.transform = 'scale(' + (1 + 0.2 * e) + ') translateY(' + (-3 * e) + '%)';
-
-      PIECES.forEach(function (cfg) {
-        var el = els[cfg.id];
-        if (!el) return;
-        var local = clamp01((p - cfg.start) / (cfg.end - cfg.start));
-        el.style.opacity = String(clamp01(local / 0.08));   // surge rápido nos primeiros 8%
-        var te = cfg.ease(local);
-        var sxv = cfg.sx + (1 - cfg.sx) * te;
-        var syv = cfg.sy + (1 - cfg.sy) * te;
-        var rot = cfg.rot ? (cfg.rot * (1 - easeOutCubic(local))) : 0;
-        el.setAttribute('transform',
-          'translate(' + cfg.ax + ' ' + cfg.ay + ') scale(' + sxv + ' ' + syv + ') rotate(' + rot + ') translate(' + (-cfg.ax) + ' ' + (-cfg.ay) + ')');
-      });
-
-      stage.classList.toggle('is-protected', p > 0.78);
-    }
-
-    if (isStatic) { renderStatic(); return; }
-
-    document.body.classList.add('js-montage');
     var target = 0, current = 0, raf = 0;
 
+    function render(p) {
+      var e = easeInOutCubic(clamp01(p));
+      if (photoWrap) photoWrap.style.transform = 'scale(' + (1 + 0.07 * e) + ') translateY(' + (-2.4 * e) + '%)';
+      pulses.forEach(function (el) {
+        var d = parseInt(el.getAttribute('data-d'), 10) || 0;
+        el.classList.toggle('on', p >= DEVICE_AT[d]);
+      });
+      stage.classList.toggle('is-protected', p > 0.6);
+    }
     function compute() {
       var vh = window.innerHeight;
-      target = clamp01((window.scrollY - 0.05 * vh) / (0.65 * vh));
+      target = clamp01((window.scrollY - 0.04 * vh) / (0.62 * vh));
       if (!raf) raf = window.requestAnimationFrame(tick);
     }
     function tick() {
@@ -156,17 +131,12 @@
     compute();
     window.addEventListener('scroll', compute, { passive: true });
     window.addEventListener('resize', function () {
-      if (window.innerWidth <= 980) {
-        document.body.classList.remove('js-montage');
-        window.removeEventListener('scroll', compute);
-        renderStatic();
-      } else {
-        compute();
-      }
+      if (window.innerWidth <= 980) { window.removeEventListener('scroll', compute); activateAll(); }
+      else { compute(); }
     }, { passive: true });
   }
 
-  setupMontage();
+  setupHero();
 
   /* ----------------------------------------------------------------- Partículas de sinal */
   function setupSignalCanvas() {
