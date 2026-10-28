@@ -183,4 +183,112 @@
   }
 
   setupSignalCanvas();
+
+  /* ----------------------------------------------------------------- Liquid Glass: brilho segue o ponteiro */
+  Array.prototype.forEach.call(document.querySelectorAll('.glass'), function (el) {
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      el.style.setProperty('--glass-x', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      el.style.setProperty('--glass-y', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
+    el.addEventListener('pointerleave', function () {
+      el.style.removeProperty('--glass-x');
+      el.style.removeProperty('--glass-y');
+    });
+  });
+
+  /* ----------------------------------------------------------------- Menu: cápsula de vidro deslizante */
+  (function () {
+    var nav = document.getElementById('main-nav');
+    var cap = nav && nav.querySelector('.nav-capsule');
+    if (!cap) return;
+    var links = Array.prototype.slice.call(nav.querySelectorAll('a:not(.button)'));
+    function moveTo(a) {
+      var jump = !nav.classList.contains('cap-on');
+      if (jump) cap.style.transition = 'none';
+      nav.style.setProperty('--cap-left', a.offsetLeft + 'px');
+      nav.style.setProperty('--cap-width', a.offsetWidth + 'px');
+      if (jump) { void cap.offsetWidth; cap.style.transition = ''; }
+      nav.classList.add('cap-on');
+    }
+    function hide() { nav.classList.remove('cap-on'); }
+    links.forEach(function (a) {
+      a.addEventListener('mouseenter', function () { moveTo(a); });
+      a.addEventListener('focus', function () { moveTo(a); });
+      a.addEventListener('blur', function () { if (!nav.matches(':hover')) hide(); });
+    });
+    nav.addEventListener('mouseleave', function () {
+      if (links.indexOf(document.activeElement) === -1) hide();
+    });
+  })();
+
+  /* ----------------------------------------------------------------- Carrossel de produtos */
+  (function () {
+    var root = document.querySelector('[data-carousel]');
+    if (!root) return;
+    var track = root.querySelector('.car-track');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.car-slide'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('.car-dot'));
+    var prev = root.querySelector('[data-dir="-1"]');
+    var next = root.querySelector('[data-dir="1"]');
+    var counter = root.querySelector('.car-count-now');
+    var live = root.querySelector('.car-live');
+    var idx = -1, ticking = 0, lockUntil = 0;
+
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+    function setActive(i, announce) {
+      if (i === idx) return;
+      idx = i;
+      slides.forEach(function (s, k) {
+        var on = k === i;
+        s.classList.toggle('is-active', on);
+        s.setAttribute('aria-hidden', on ? 'false' : 'true');
+        Array.prototype.forEach.call(s.querySelectorAll('a'), function (a) { a.tabIndex = on ? 0 : -1; });
+      });
+      dots.forEach(function (d, k) {
+        d.classList.toggle('is-on', k === i);
+        if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+      });
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === slides.length - 1;
+      if (counter) counter.textContent = pad(i + 1);
+      if (announce && live) {
+        var h = slides[i].querySelector('h3');
+        live.textContent = 'Produto ' + (i + 1) + ' de ' + slides.length + ': ' + (h ? h.textContent : '');
+      }
+    }
+    function current() {
+      return Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / Math.max(1, track.clientWidth))));
+    }
+    function goTo(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      lockUntil = Date.now() + 750;
+      track.scrollTo({ left: i * track.clientWidth, behavior: prefersReduced ? 'auto' : 'smooth' });
+      setActive(i, true);
+    }
+
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = window.requestAnimationFrame(function () {
+        ticking = 0;
+        if (Date.now() < lockUntil) return;
+        setActive(current(), true);
+      });
+    }, { passive: true });
+
+    if (prev) prev.addEventListener('click', function () { goTo(idx - 1); });
+    if (next) next.addEventListener('click', function () { goTo(idx + 1); });
+    dots.forEach(function (d, k) { d.addEventListener('click', function () { goTo(k); }); });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(idx + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(idx - 1); }
+    });
+    window.addEventListener('resize', function () {
+      track.scrollLeft = idx * track.clientWidth;
+    }, { passive: true });
+
+    setActive(0, false);
+  })();
 })();
