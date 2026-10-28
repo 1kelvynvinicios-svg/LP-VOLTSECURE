@@ -182,7 +182,7 @@ h1 em{font-style:normal;color:var(--bright-2)}
 /* ==========================================================================
    Footer / flutuante / progresso
    ========================================================================== */
-.site-footer{border-top:1px solid var(--line);background:#fff}
+.site-footer{border-top:1px solid var(--line);background:#fff;overflow:hidden}
 .footer-inner{min-height:127px;display:grid;grid-template-columns:1.4fr 1.2fr auto auto;align-items:center;gap:35px}
 .brand-footer{color:#173b27}
 .brand-footer .brand-mark{color:var(--green);font-size:20px}
@@ -217,6 +217,51 @@ h1 em{font-style:normal;color:var(--bright-2)}
 .motion-ready .scroll-hint{animation:soft-rise .8s ease both;animation-delay:1s}
 
 /* ==========================================================================
+   CTA com borda animada (adaptado do estilo de referência, em verde)
+   ========================================================================== */
+@property --ga{syntax:"<angle>";initial-value:0deg;inherits:false}
+.shiny-cta{position:relative;border:2px solid transparent;border-radius:11px;
+  background:linear-gradient(var(--bright-2),var(--bright-2)) padding-box,
+  conic-gradient(from var(--ga),transparent 0 62%,#eafff2 78%,#ffffff 86%,transparent 100%) border-box;
+  animation:ga-spin 3s linear infinite;box-shadow:0 14px 34px rgba(52,211,107,.32)}
+.shiny-cta:hover{background:linear-gradient(#2bc360,#2bc360) padding-box,
+  conic-gradient(from var(--ga),transparent 0 62%,#eafff2 78%,#ffffff 86%,transparent 100%) border-box}
+@keyframes ga-spin{to{--ga:360deg}}
+
+/* ==========================================================================
+   Diferenciais — bento grid
+   ========================================================================== */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:16px}
+.b-card{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:9px;min-height:172px;padding:24px;border:1px solid #e2ebe4;border-radius:16px;background:#fff;box-shadow:0 10px 28px #1020180a;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.b-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px #10201816;border-color:#c9ddce}
+.b-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:#e6f1e9;color:var(--green);font-size:22px}
+.b-card h3{margin:3px 0 0;font-size:17px;letter-spacing:-.3px}
+.b-card p{margin:0;color:#6a776f;font-size:13px;line-height:1.6}
+.b-lg{grid-column:span 2;grid-row:span 2;justify-content:space-between;background:linear-gradient(150deg,#14532d,#0d3d21);border-color:transparent;color:#fff}
+.b-lg::after{content:"";position:absolute;width:320px;height:320px;right:-120px;top:-150px;border:1px solid #ffffff14;border-radius:50%;box-shadow:0 0 0 40px #ffffff08;pointer-events:none}
+.b-lg .b-icon{background:rgba(255,255,255,.1);color:var(--bright-2)}
+.b-lg h3{font-size:clamp(23px,2.3vw,31px);margin-top:14px}
+.b-lg p{color:#cfe4d6;font-size:15px;line-height:1.7;max-width:430px}
+
+/* ==========================================================================
+   Depoimentos
+   ========================================================================== */
+.reviews-section{background:var(--bg-soft);padding:84px 0;border-top:1px solid var(--line)}
+.reviews-wrap{display:grid;gap:38px}
+.reviews-wrap .section-heading{max-width:580px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{display:flex;flex-direction:column;gap:14px;margin:0;padding:28px;background:#fff;border:1px solid #e2ebe4;border-radius:16px;box-shadow:0 10px 28px #1020180a}
+.stars{color:var(--bright);font-size:15px;letter-spacing:3px}
+.review-card blockquote{margin:0;color:#33433b;font-size:14.5px;line-height:1.72}
+.review-card figcaption{margin-top:auto;color:var(--green);font-weight:700;font-size:13px}
+.review-card figcaption::before{content:"— "}
+
+/* ==========================================================================
+   Marca d'água no rodapé
+   ========================================================================== */
+.footer-watermark{margin:28px 0 -8px;text-align:center;line-height:.78;font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(58px,15vw,186px);letter-spacing:-.04em;-webkit-text-stroke:1px rgba(20,83,45,.15);color:transparent;user-select:none;pointer-events:none;white-space:nowrap}
+
+/* ==========================================================================
    Responsivo
    ========================================================================== */
 @media(max-width:980px){
@@ -231,6 +276,10 @@ h1 em{font-style:normal;color:var(--bright-2)}
   .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
   .product-card p{min-height:0}
   .trust-grid{grid-template-columns:1fr;gap:20px}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .b-lg{grid-column:span 2;grid-row:span 1;min-height:210px}
+  .review-grid{grid-template-columns:1fr}
+  .footer-watermark{-webkit-text-stroke-width:.8px}
   .services-wrap{grid-template-columns:1fr;gap:34px}
   .services-cta{grid-column:1}
   .contact-panel{padding:48px 38px;gap:5%}
@@ -259,6 +308,8 @@ h1 em{font-style:normal;color:var(--bright-2)}
   .button{min-height:51px;padding-inline:18px;font-size:13px}
   .product-grid{grid-template-columns:1fr;gap:14px}
   .product-visual{height:190px}
+  .bento{grid-template-columns:1fr}
+  .b-lg{grid-column:span 1}
   .services-section{padding:62px 0 58px}
   .service-item{grid-template-columns:43px 1fr auto;gap:12px;min-height:105px}
   .contact-section{width:100%;padding:62px 20px}
