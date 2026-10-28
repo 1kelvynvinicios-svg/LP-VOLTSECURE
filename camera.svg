@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none" role="img" aria-label="Câmera de segurança">
+  <path d="M300 452 V422" stroke="#14532d" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="300" cy="420" r="7" fill="#14532d"/>
+  <rect x="248" y="452" width="94" height="44" rx="22" fill="#14532d"/>
+  <circle cx="258" cy="474" r="16" fill="#0d3d21" stroke="#16a34a" stroke-width="4"/>
+  <circle cx="258" cy="474" r="6" fill="#16a34a"/>
+</svg>

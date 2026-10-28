@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none" role="img" aria-label="Central de alarme">
+  <rect x="300" y="556" width="70" height="52" rx="12" fill="#14532d"/>
+  <circle cx="335" cy="582" r="15" fill="#16a34a"/>
+  <circle cx="335" cy="582" r="6" fill="#eaffe9"/>
+  <path d="M382 566 q16 16 0 32 M398 556 q28 26 0 52" stroke="#16a34a" stroke-width="5" fill="none" stroke-linecap="round" opacity=".85"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none" role="img" aria-label="Fachada de uma casa">
+  <ellipse cx="500" cy="846" rx="330" ry="26" fill="#14532d" opacity=".08"/>
+  <line x1="130" y1="828" x2="870" y2="828" stroke="#14532d" stroke-width="6" stroke-linecap="round" opacity=".25"/>
+  <path d="M232 402 L500 214 L768 402 Z" fill="#14532d"/>
+  <rect x="250" y="390" width="500" height="22" rx="6" fill="#14532d"/>
+  <rect x="268" y="410" width="464" height="418" rx="10" fill="#ffffff" stroke="#14532d" stroke-width="9"/>
+  <rect x="442" y="612" width="116" height="216" rx="6" fill="#eaf2ec" stroke="#14532d" stroke-width="7"/>
+  <line x1="500" y1="620" x2="500" y2="820" stroke="#14532d" stroke-width="3" opacity=".45"/>
+  <rect x="312" y="470" width="120" height="120" rx="8" fill="#eaf2ec" stroke="#14532d" stroke-width="7"/>
+  <rect x="568" y="470" width="120" height="120" rx="8" fill="#eaf2ec" stroke="#14532d" stroke-width="7"/>
+  <path d="M372 474V586 M316 530H428" stroke="#14532d" stroke-width="3" opacity=".45"/>
+  <path d="M628 474V586 M572 530H684" stroke="#14532d" stroke-width="3" opacity=".45"/>
+</svg>

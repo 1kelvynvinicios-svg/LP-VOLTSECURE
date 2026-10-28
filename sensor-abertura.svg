@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Sensor de abertura de porta ou janela">
+  <rect x="50" y="76" width="44" height="66" rx="12" fill="#ffffff" stroke="#14532d" stroke-width="8"/>
+  <rect x="108" y="76" width="34" height="66" rx="12" fill="#14532d"/>
+  <circle cx="72" cy="109" r="6" fill="#16a34a"/>
+  <path d="M98 94 h8 M98 109 h8 M98 124 h8" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Sensor de movimento">
+  <path d="M100 116 L64 160 H136 Z" fill="#16a34a" opacity=".16"/>
+  <rect x="78" y="44" width="44" height="66" rx="16" fill="#ffffff" stroke="#14532d" stroke-width="8"/>
+  <rect x="88" y="58" width="24" height="16" rx="5" fill="#0d3d21"/>
+  <circle cx="100" cy="94" r="5" fill="#16a34a"/>
+  <path d="M84 150 q16 11 32 0" stroke="#16a34a" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>
